@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Comprar Produtos</title>
+
+    <!--main.css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!--ligação bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/solar/bootstrap.min.css"
+          integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
+
+    <!--Fonte-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilo da página */
+        body {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Estilo do cabeçalho */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Venda de Produto</h1>
+    <form method="POST" action="{{ url_for('venda') }}">
+        <label for="produto_id">Produto:</label>
+        <select id="produto_id" name="produto_id">
+            {% for produto in lista_produtos %}
+                <option value="{{ produto.id }}" {% if produto.id == produto.id %}selected{% endif %}>{{ produto.descricao }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" min="1" required>
+        <br><br>
+        <input type="submit" value="Vender">
+    </form>
+    <p></p>
+
+    <a class="back-link" href="{{ url_for('dashboard') }}">Retroceder</a>
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Stock</title>
+
+    <!--main.css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <!--ligação bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/solar/bootstrap.min.css"
+          integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
+
+    <!--Fonte-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <section class="login">
+
+    <h1 class="display-6 text-left mt-4 titulo">Registar Entrada de Produto</h1>
+
+    <p></p>
+
+      <form action="" method="post">
+        <input type="Integer" name="produto_id" placeholder="ID Produto">
+
+        <input type="Integer" name="fornecedor" placeholder="ID Fornecedor">
+
+        <input type="Integer" name="preco" placeholder="Preço sem IVA">
+
+          <input type="Integer" name="iva" placeholder="Iva">
+
+          <input type="Integer" name="quantidade" placeholder="Quantidade">
+
+
+        <input type="submit" value="Adicionar">
+
+      </form>
+    </section>
+
+
+
+<section class="table">
+
+    <h1 class="display-6 text-left mt-4 titulo">Lista de Produtos</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Localizacao</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for produto in lista_produtos %}
+          <tr>
+            <td>{{ produto.id }} </td>
+            <td>{{ produto.descricao }}  </td>
+            <td>{{ produto.quantidade }}  </td>
+            <td>{{ produto.localizacao }}  </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</section>
+    <a class="back-link" href="{{ url_for('dashboard') }}">Retroceder</a>
+
+
+</body>
+</html>
+
+
+
+
+
+
+</body>
+</html>

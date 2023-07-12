@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        <!--main.css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <!--ligação bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/solar/bootstrap.min.css"
+          integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
+
+    <!--Fonte-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section class="login">
+    <!--Título-->
+        <h1 class="display-6 text-left mt-4 titulo">Faça Login</h1>
+
+            <form action="" method="post">
+                <input type="text" name="username" placeholder="Insira um utilizador">
+                <input type="password" name="password" placeholder="*********">
+                <input type="submit" value="Login">
+
+            </form>
+    </section>
+
+</body>
+</html>

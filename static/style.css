@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.titulo {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.center{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2%;
+
+}
+
+header{
+    padding:20px 0;
+
+}
+
+.logo{
+    width: 50%
+}
+
+.menu{
+    width: 50%;
+    text-align: right;
+
+}
+
+.menu a{
+    color: #839496;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+section.login{
+    padding:20px 20px;
+}
+
+section.table{
+    padding:20px 30px;
+
+}
+
+
+}

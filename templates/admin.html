@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Stock</title>
+
+    <!--main.css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <!--ligação bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/solar/bootstrap.min.css"
+          integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
+
+    <!--Fonte-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <header>
+      <div class="center">
+        <div class = "logo"></div><!--logo-->
+        <div class="menu">
+            <a href="{{url_for('logout')}}">Logout</a>
+            <a href="{{url_for('home')}}">Home Page</a>
+            <a href="{{url_for('registo')}}">Novo utilizador</a>
+            <a href="{{url_for('novo_produto')}}">Criar Produto</a>
+            <a href="produtos_disponiveis">Stock Disponivel</a>
+            <p></p>
+            <a href="{{url_for('compra')}}">Encomendar Produtos</a>
+            <a href="{{url_for('grafico_comparativo')}}">Graficos comparativo</a>
+            <a href="{{url_for('grafico_compras')}}">Graficos de compras</a>
+
+
+
+        </div><!--Menu-->
+
+      </div><!--Center-->
+
+      <h1 class="display-2 text-center mt-4 titulo">Bem vindo {{current_user.username}}</h1>
+
+
+    </header>
+
+<h1 class="display-6 text-center mt-4 titulo">Produtos a necessitar de atenção:</h1>
+
+{% for produto in produto %}
+  <div class="produto text-center">
+
+
+    {% if produto.has_alert() %}
+      <h3>{{ produto.descricao }} restam apenas {{produto.quantidade}} </h3>
+      <p style="color:red;">Stock Baixo</p>
+    {% endif %}
+
+      
+  </div>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

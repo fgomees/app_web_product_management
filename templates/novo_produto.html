@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Produto</title>
+
+        <!--main.css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <!--ligação bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/solar/bootstrap.min.css"
+          integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
+
+    <!--Fonte-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+      <form action="novo_produto" method="post">
+        <input type="text" name="descricao" placeholder="Produto">
+
+        <input type="text" name="localizacao" placeholder="Localização">
+
+        <input type="Integer" name="iva" placeholder="Taxa de Iva">
+
+          <input type="Integer" name="qtd_rmd" placeholder="Quantidade Recomendada">
+
+        <input type="submit" value="Adicionar">
+
+      </form>
+    <a class="back-link" href="{{ url_for('dashboard') }}">Retroceder</a>
+</body>
+</html>

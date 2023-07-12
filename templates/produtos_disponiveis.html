@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Stock</title>
+
+    <!--main.css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!--ligação bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/solar/bootstrap.min.css"
+          integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
+
+    <!--Fonte-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilo da tabela */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        /* Estilo do cabeçalho */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo da mensagem de nenhum produto disponível */
+        p {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Produtos Disponíveis</h1>
+
+    {% if produtos %}
+        <table>
+            <tr>
+                <th>Descrição</th>
+                <th>Preço de Venda</th>
+                <th>Quantidade</th>
+                <th>Data de Disponibilidade</th>
+            </tr>
+            {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.descricao }}</td>
+                    <td>{{ produto.preco_venda }}</td>
+                    <td>{{ produto.quantidade }}</td>
+                    <td>{{ produto.data_disponibilidade }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Nenhum produto disponível no momento.</p>
+    {% endif %}
+        <p></p>
+
+    <a class="back-link" href="{{ url_for('dashboard') }}">Retroceder</a>
+
+</body>
+
+</html>
